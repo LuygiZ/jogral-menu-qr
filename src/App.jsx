@@ -1,48 +1,24 @@
 import React, { useState } from 'react';
 import { Coffee, Wine, Utensils, X } from 'lucide-react';
+import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, FOOTER_TEXT } from './menuData';
 
 export default function CafeMenu() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedItem, setSelectedItem] = useState(null);
 
-  // EDIT YOUR MENU HERE - Simple format
+  // Map icons to categories
+  const iconMap = {
+    'coffee': Coffee,
+    'drinks': Wine,
+    'food': Utensils
+  };
+
   const menuData = {
-    cafe: "Sunset Cafe & Bar",
-    categories: [
-      {
-        id: 'coffee',
-        name: 'Coffee',
-        icon: Coffee,
-        items: [
-          { name: 'Espresso', price: '2.50', description: 'Strong and bold' },
-          { name: 'Cappuccino', price: '3.50', description: 'Creamy and smooth' },
-          { name: 'Latte', price: '3.80', description: 'Mild and milky' },
-          { name: 'Americano', price: '2.80', description: 'Classic coffee' }
-        ]
-      },
-      {
-        id: 'drinks',
-        name: 'Drinks',
-        icon: Wine,
-        items: [
-          { name: 'House Wine', price: '4.50', description: 'Red or White' },
-          { name: 'Craft Beer', price: '5.00', description: 'Local selection' },
-          { name: 'Gin & Tonic', price: '6.50', description: 'Premium gin' },
-          { name: 'Fresh Juice', price: '3.50', description: 'Orange or Apple' }
-        ]
-      },
-      {
-        id: 'food',
-        name: 'Food',
-        icon: Utensils,
-        items: [
-          { name: 'Croissant', price: '2.50', description: 'Butter or chocolate' },
-          { name: 'Sandwich', price: '6.50', description: 'Ham, cheese & tomato' },
-          { name: 'Salad Bowl', price: '7.50', description: 'Fresh & healthy' },
-          { name: 'Cake Slice', price: '3.80', description: 'Daily selection' }
-        ]
-      }
-    ]
+    cafe: CAFE_NAME,
+    categories: MENU_CATEGORIES.map(cat => ({
+      ...cat,
+      icon: iconMap[cat.id] || Coffee
+    }))
   };
 
   const allItems = menuData.categories.flatMap(cat => 
@@ -107,7 +83,7 @@ export default function CafeMenu() {
             >
               <div className="flex justify-between items-start mb-2">
                 <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
-                <span className="text-xl font-bold text-amber-900">€{item.price}</span>
+                <span className="text-xl font-bold text-amber-900">{CURRENCY}{item.price}</span>
               </div>
               <p className="text-gray-600 text-sm">{item.description}</p>
               {selectedCategory === 'all' && (
@@ -142,7 +118,7 @@ export default function CafeMenu() {
             <p className="text-gray-600 mb-4">{selectedItem.description}</p>
             <div className="flex justify-between items-center pt-4 border-t">
               <span className="text-sm text-gray-500">{selectedItem.categoryName}</span>
-              <span className="text-3xl font-bold text-amber-900">€{selectedItem.price}</span>
+              <span className="text-3xl font-bold text-amber-900">{CURRENCY}{selectedItem.price}</span>
             </div>
           </div>
         </div>
@@ -150,7 +126,7 @@ export default function CafeMenu() {
 
       {/* Footer */}
       <div className="text-center py-6 text-gray-500 text-sm">
-        Scan QR code to view menu
+        {FOOTER_TEXT}
       </div>
     </div>
   );
