@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Coffee, Wine, Utensils, X } from 'lucide-react';
 import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, FOOTER_TEXT } from './menuData';
+import Footer from './components/Footer';
 
 export default function CafeMenu() {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -125,9 +126,7 @@ export default function CafeMenu() {
       )}
 
       {/* Footer */}
-      <div className="text-center py-6 text-gray-500 text-sm">
-        {FOOTER_TEXT}
-      </div>
+      <Footer />
     </div>
   );
 }
