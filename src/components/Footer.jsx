@@ -1,16 +1,15 @@
-// src/components/Footer.jsx
 import React from 'react';
 import { Facebook, Instagram, ExternalLink } from 'lucide-react';
 import Luis from "/luis.png"
 
 const Footer = () => {
-  // EDIT YOUR FOOTER INFO HERE
+  //FOOTER INFO
   const footerData = {
-    businessName: "Sunset Cafe & Bar",
+    businessName: "Jogral Cafe & Brasserie",
     facebook: "https://www.facebook.com/Jogralbarbrasserie/?locale=pt_PT",
     instagram: "https://www.instagram.com/jogralbarbrasserie/",
     developerName: "Luis Santos",
-    developerImage: Luis, // Put image in public folder
+    developerImage: Luis,
     portfolioUrl: "https://luissantosportfolio.vercel.app/",
     showTerms: true,
     showPrivacy: true
