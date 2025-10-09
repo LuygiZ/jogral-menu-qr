@@ -3,6 +3,7 @@ import { Coffee, Wine, Utensils, X, Clock, Calendar, Sparkles } from 'lucide-rea
 import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, PROMOTIONS } from './menuData';
 import Footer from './components/Footer';
 
+
 export default function CafeMenu() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedItem, setSelectedItem] = useState(null);
