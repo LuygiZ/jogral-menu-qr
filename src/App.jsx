@@ -3,13 +3,12 @@ import { Coffee, Wine, Utensils, X, Clock, Calendar, Sparkles } from 'lucide-rea
 import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, PROMOTIONS } from './menuData';
 import Footer from './components/Footer';
 
-
 export default function CafeMenu() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedItem, setSelectedItem] = useState(null);
   const [showPromotions, setShowPromotions] = useState(true);
 
-  // Mapear ícones para categorias
+  // Map icons to categories
   const iconMap = {
     'coffee': Coffee,
     'drinks': Wine,
@@ -24,19 +23,19 @@ export default function CafeMenu() {
     }))
   };
 
-  // Filtrar promoções ativas
+  // Filter active promotions
   const activePromotions = PROMOTIONS.filter(promo => {
-    const hoje = new Date();
-    const inicio = new Date(promo.startDate);
-    const fim = new Date(promo.endDate);
-    return hoje >= inicio && hoje <= fim;
+    const today = new Date();
+    const start = new Date(promo.startDate);
+    const end = new Date(promo.endDate);
+    return today >= start && today <= end;
   });
 
-  // Calcular dias restantes para uma promoção
+  // Calculate days remaining for a promotion
   const getDaysRemaining = (endDate) => {
-    const hoje = new Date();
-    const fim = new Date(endDate);
-    const diff = Math.ceil((fim - hoje) / (1000 * 60 * 60 * 24));
+    const today = new Date();
+    const end = new Date(endDate);
+    const diff = Math.ceil((end - today) / (1000 * 60 * 60 * 24));
     return diff;
   };
 
@@ -50,7 +49,7 @@ export default function CafeMenu() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-white to-stone-100">
-      {/* Cabeçalho */}
+      {/* Header */}
       <div className="bg-gradient-to-r from-black to-gray-900 text-white py-10 px-4 shadow-2xl">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl font-bold mb-2 tracking-tight">{menuData.cafe}</h1>
@@ -58,7 +57,7 @@ export default function CafeMenu() {
         </div>
       </div>
 
-      {/* Banner de Promoções */}
+      {/* Promotions Banner */}
       {activePromotions.length > 0 && showPromotions && (
         <div className="bg-white shadow-xl border-b-4 border-black relative">
           <button
@@ -71,7 +70,7 @@ export default function CafeMenu() {
           <div className="max-w-4xl mx-auto py-6 px-4">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="text-black" size={24} />
-              <h2 className="text-2xl font-bold text-black">Ofertas Especiais</h2>
+              <h2 className="text-2xl font-bold text-black">Special Offers</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -80,14 +79,14 @@ export default function CafeMenu() {
                 return (
                   <div
                     key={promo.id}
-                    className={`relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer transform hover:scale-105 border border-gray-200`}
+                    className={`relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer transform hover:scale-105 border border-gray-200 h-full`}
                   >
-                    <div className={`bg-gradient-to-br ${promo.color} p-6 text-white`}>
+                    <div className={`bg-gradient-to-br ${promo.color} p-6 text-white h-full flex flex-col`}>
                       <div className="text-5xl mb-3">{promo.image}</div>
-                      <h3 className="text-xl font-bold mb-2">{promo.title}</h3>
-                      <p className="text-sm mb-3 opacity-90">{promo.description}</p>
+                      <h3 className="text-xl font-bold mb-2 min-h-[3.5rem] line-clamp-2">{promo.title}</h3>
+                      <p className="text-sm mb-3 opacity-90 flex-grow min-h-[2.5rem] line-clamp-2">{promo.description}</p>
                       
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mt-auto">
                         <span className="text-3xl font-bold bg-white text-black px-4 py-2 rounded-lg shadow-md">
                           {promo.discount}
                         </span>
@@ -112,7 +111,7 @@ export default function CafeMenu() {
         </div>
       )}
 
-      {/* Botão Mostrar Promoções (quando ocultas) */}
+      {/* Show Promotions Button (when hidden) */}
       {!showPromotions && activePromotions.length > 0 && (
         <div className="bg-stone-100 border-b border-stone-200">
           <div className="max-w-4xl mx-auto py-3 px-4">
@@ -121,13 +120,13 @@ export default function CafeMenu() {
               className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold transition-colors"
             >
               <Sparkles size={20} />
-              Ver {activePromotions.length} Promoção{activePromotions.length > 1 ? 's' : ''} Ativa{activePromotions.length > 1 ? 's' : ''}
+              View {activePromotions.length} Active Promotion{activePromotions.length > 1 ? 's' : ''}
             </button>
           </div>
         </div>
       )}
 
-      {/* Filtro de Categorias */}
+      {/* Category Filter */}
       <div className="sticky top-0 bg-white shadow-lg z-10 py-4 px-4 border-b border-gray-200">
         <div className="max-w-4xl mx-auto flex gap-2 overflow-x-auto">
           <button
@@ -138,7 +137,7 @@ export default function CafeMenu() {
                 : 'bg-stone-100 text-gray-800 hover:bg-stone-200'
             }`}
           >
-            Tudo
+            All
           </button>
           {menuData.categories.map(cat => {
             const Icon = cat.icon;
@@ -160,7 +159,7 @@ export default function CafeMenu() {
         </div>
       </div>
 
-      {/* Itens do Menu */}
+      {/* Menu Items */}
       <div className="max-w-4xl mx-auto p-4 pb-8">
         <div className="grid gap-4 md:grid-cols-2">
           {filteredItems.map((item, idx) => (
@@ -187,7 +186,7 @@ export default function CafeMenu() {
         </div>
       </div>
 
-      {/* Modal de Detalhes do Item */}
+      {/* Item Detail Modal */}
       {selectedItem && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-60 flex items-end md:items-center justify-center z-50 p-4"
