@@ -8,7 +8,7 @@ export default function CafeMenu() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [showPromotions, setShowPromotions] = useState(true);
 
-  // Map icons to categories
+  // Mapear ícones para categorias
   const iconMap = {
     'coffee': Coffee,
     'drinks': Wine,
@@ -23,19 +23,19 @@ export default function CafeMenu() {
     }))
   };
 
-  // Filter active promotions
+  // Filtrar promoções ativas
   const activePromotions = PROMOTIONS.filter(promo => {
-    const today = new Date();
-    const start = new Date(promo.startDate);
-    const end = new Date(promo.endDate);
-    return today >= start && today <= end;
+    const hoje = new Date();
+    const inicio = new Date(promo.startDate);
+    const fim = new Date(promo.endDate);
+    return hoje >= inicio && hoje <= fim;
   });
 
-  // Calculate days remaining for a promotion
+  // Calcular dias restantes para uma promoção
   const getDaysRemaining = (endDate) => {
-    const today = new Date();
-    const end = new Date(endDate);
-    const diff = Math.ceil((end - today) / (1000 * 60 * 60 * 24));
+    const hoje = new Date();
+    const fim = new Date(endDate);
+    const diff = Math.ceil((fim - hoje) / (1000 * 60 * 60 * 24));
     return diff;
   };
 
@@ -49,7 +49,7 @@ export default function CafeMenu() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-white to-stone-100">
-      {/* Header */}
+      {/* Cabeçalho */}
       <div className="bg-gradient-to-r from-black to-gray-900 text-white py-10 px-4 shadow-2xl">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl font-bold mb-2 tracking-tight">{menuData.cafe}</h1>
@@ -57,7 +57,7 @@ export default function CafeMenu() {
         </div>
       </div>
 
-      {/* Promotions Banner */}
+      {/* Banner de Promoções */}
       {activePromotions.length > 0 && showPromotions && (
         <div className="bg-white shadow-xl border-b-4 border-black relative">
           <button
@@ -70,7 +70,7 @@ export default function CafeMenu() {
           <div className="max-w-4xl mx-auto py-6 px-4">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="text-black" size={24} />
-              <h2 className="text-2xl font-bold text-black">Special Offers</h2>
+              <h2 className="text-2xl font-bold text-black">Ofertas Especiais</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -93,7 +93,7 @@ export default function CafeMenu() {
                         <div className="text-right text-xs">
                           <div className="flex items-center gap-1 justify-end mb-1">
                             <Clock size={12} />
-                            <span>{daysLeft} days left</span>
+                            <span>{daysLeft} dias restantes</span>
                           </div>
                           {promo.categoryFilter && promo.categoryFilter !== 'all' && (
                             <span className="bg-white bg-opacity-20 px-2 py-1 rounded-full text-xs">
@@ -111,7 +111,7 @@ export default function CafeMenu() {
         </div>
       )}
 
-      {/* Show Promotions Button (when hidden) */}
+      {/* Botão Mostrar Promoções (quando ocultas) */}
       {!showPromotions && activePromotions.length > 0 && (
         <div className="bg-stone-100 border-b border-stone-200">
           <div className="max-w-4xl mx-auto py-3 px-4">
@@ -120,13 +120,13 @@ export default function CafeMenu() {
               className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold transition-colors"
             >
               <Sparkles size={20} />
-              View {activePromotions.length} Active Promotion{activePromotions.length > 1 ? 's' : ''}
+              Ver {activePromotions.length} Promoção{activePromotions.length > 1 ? 's' : ''} Ativa{activePromotions.length > 1 ? 's' : ''}
             </button>
           </div>
         </div>
       )}
 
-      {/* Category Filter */}
+      {/* Filtro de Categorias */}
       <div className="sticky top-0 bg-white shadow-lg z-10 py-4 px-4 border-b border-gray-200">
         <div className="max-w-4xl mx-auto flex gap-2 overflow-x-auto">
           <button
@@ -137,7 +137,7 @@ export default function CafeMenu() {
                 : 'bg-stone-100 text-gray-800 hover:bg-stone-200'
             }`}
           >
-            All
+            Tudo
           </button>
           {menuData.categories.map(cat => {
             const Icon = cat.icon;
@@ -159,7 +159,7 @@ export default function CafeMenu() {
         </div>
       </div>
 
-      {/* Menu Items */}
+      {/* Itens do Menu */}
       <div className="max-w-4xl mx-auto p-4 pb-8">
         <div className="grid gap-4 md:grid-cols-2">
           {filteredItems.map((item, idx) => (
@@ -186,7 +186,7 @@ export default function CafeMenu() {
         </div>
       </div>
 
-      {/* Item Detail Modal */}
+      {/* Modal de Detalhes do Item */}
       {selectedItem && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-60 flex items-end md:items-center justify-center z-50 p-4"

@@ -2,23 +2,23 @@ export const CAFE_NAME = "Jogral Bar & Brasserie";
 
 export const CURRENCY = "€";
 
-// PROMOTIONS
+// PROMOÇÕES
 export const PROMOTIONS = [
   {
     id: 1,
-    title: "Happy Hour Special",
-    description: "50% off on all drinks",
+    title: "Especial Happy Hour",
+    description: "50% de desconto em todas as bebidas",
     discount: "50%",
-    startDate: "2025-10-01", // YYYY-MM-DD format
+    startDate: "2025-10-01", // formato AAAA-MM-DD
     endDate: "2025-10-31",
-    categoryFilter: "drinks", // 'all', 'coffee', 'drinks', 'food', or null
-    image: "🍹", // You can use emoji or image URL
-    color: "from-gray-900 to-gray-700" // Tailwind gradient classes
+    categoryFilter: "drinks", // 'all', 'coffee', 'drinks', 'food' ou null
+    image: "🍹", // Podes usar emoji ou URL de imagem
+    color: "from-gray-900 to-gray-700" // Classes de gradiente Tailwind
   },
   {
     id: 2,
-    title: "Breakfast Combo",
-    description: "Coffee + Croissant for only €4",
+    title: "Combo de Pequeno-Almoço",
+    description: "Café + Croissant por apenas €4",
     discount: "€4",
     startDate: "2025-10-01",
     endDate: "2025-12-31",
@@ -28,9 +28,9 @@ export const PROMOTIONS = [
   },
   {
     id: 3,
-    title: "Weekend Brunch",
-    description: "Free dessert with any main dish",
-    discount: "Free",
+    title: "Brunch de Fim de Semana",
+    description: "Sobremesa grátis com qualquer prato principal",
+    discount: "Grátis",
     startDate: "2025-10-08",
     endDate: "2025-10-15",
     categoryFilter: "food",
@@ -42,106 +42,106 @@ export const PROMOTIONS = [
 export const MENU_CATEGORIES = [
   {
     id: 'coffee',
-    name: 'Coffee',
+    name: 'Café',
     items: [
       { 
-        name: 'Espresso', 
+        name: 'Expresso', 
         price: '2.50', 
-        description: 'Strong and bold',
-        image: '☕' // Optional emoji or image URL
+        description: 'Forte e encorpado',
+        image: '☕'
       },
       { 
         name: 'Cappuccino', 
         price: '3.50', 
-        description: 'Creamy and smooth',
+        description: 'Cremoso e suave',
         image: '☕'
       },
       { 
         name: 'Latte', 
         price: '3.80', 
-        description: 'Mild and milky',
+        description: 'Suave e leitoso',
         image: '☕'
       },
       { 
         name: 'Americano', 
         price: '2.80', 
-        description: 'Classic coffee',
+        description: 'Café clássico',
         image: '☕'
       }
     ]
   },
   {
     id: 'drinks',
-    name: 'Drinks',
+    name: 'Bebidas',
     items: [
       { 
-        name: 'House Wine', 
+        name: 'Vinho da Casa', 
         price: '4.50', 
-        description: 'Red or White',
+        description: 'Tinto ou Branco',
         image: '🍷'
       },
       { 
-        name: 'Craft Beer', 
+        name: 'Cerveja Artesanal', 
         price: '5.00', 
-        description: 'Local selection',
+        description: 'Seleção local',
         image: '🍺'
       },
       { 
-        name: 'Gin & Tonic', 
+        name: 'Gin Tónico', 
         price: '6.50', 
-        description: 'Premium gin',
+        description: 'Gin premium',
         image: '🍸'
       },
       { 
-        name: 'Fresh Juice', 
+        name: 'Sumo Natural', 
         price: '3.50', 
-        description: 'Orange or Apple',
+        description: 'Laranja ou Maçã',
         image: '🧃'
       }
     ]
   },
   {
     id: 'food',
-    name: 'Food',
+    name: 'Comida',
     items: [
       { 
         name: 'Croissant', 
         price: '2.50', 
-        description: 'Butter or chocolate',
+        description: 'Manteiga ou chocolate',
         image: '🥐'
       },
       { 
-        name: 'Sandwich', 
+        name: 'Sandes', 
         price: '6.50', 
-        description: 'Ham, cheese & tomato',
+        description: 'Fiambre, queijo e tomate',
         image: '🥪'
       },
       { 
-        name: 'Salad Bowl', 
+        name: 'Taça de Salada', 
         price: '7.50', 
-        description: 'Fresh & healthy',
+        description: 'Fresca e saudável',
         image: '🥗'
       },
       { 
-        name: 'Cake Slice', 
+        name: 'Fatia de Bolo', 
         price: '3.80', 
-        description: 'Daily selection',
+        description: 'Seleção do dia',
         image: '🍰'
       },
       { 
-        name: 'Pasta', 
+        name: 'Massa', 
         price: '8.50', 
-        description: 'Carbonara or Bolognese',
+        description: 'Carbonara ou Bolonhesa',
         image: '🍝'
       },
       { 
-        name: 'Burger', 
+        name: 'Hambúrguer', 
         price: '9.00', 
-        description: 'Beef with fries',
+        description: 'Carne de vaca com batatas fritas',
         image: '🍔'
       }
     ]
   }
 ];
 
-export const FOOTER_TEXT = "Scan QR code to view menu";
+export const FOOTER_TEXT = "Digitaliza o código QR para ver o menu";
