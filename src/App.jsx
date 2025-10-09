@@ -70,7 +70,7 @@ export default function CafeMenu() {
           <div className="max-w-4xl mx-auto py-6 px-4">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="text-black" size={24} />
-              <h2 className="text-2xl font-bold text-black">Special Offers</h2>
+              <h2 className="text-2xl font-bold text-black">Ofertas Especiais</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
