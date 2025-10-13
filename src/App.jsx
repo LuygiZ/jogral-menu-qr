@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Coffee, Wine, Utensils, X, Clock, Calendar, Sparkles } from 'lucide-react';
+import { Coffee, Wine, Utensils, X, Clock, Sparkles, Globe } from 'lucide-react';
 import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, PROMOTIONS } from './menuData';
+import { translations } from './translations';
 import Footer from './components/Footer';
 
 export default function CafeMenu() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedItem, setSelectedItem] = useState(null);
   const [showPromotions, setShowPromotions] = useState(true);
+  const [language, setLanguage] = useState('pt');
 
   // Map icons to categories
   const iconMap = {
@@ -15,11 +17,15 @@ export default function CafeMenu() {
     'food': Utensils
   };
 
+  // Get current translations
+  const t = translations[language];
+
   const menuData = {
     cafe: CAFE_NAME,
     categories: MENU_CATEGORIES.map(cat => ({
       ...cat,
-      icon: iconMap[cat.id] || Coffee
+      icon: iconMap[cat.id] || Coffee,
+      name: t[cat.id]
     }))
   };
 
@@ -29,6 +35,19 @@ export default function CafeMenu() {
     const start = new Date(promo.startDate);
     const end = new Date(promo.endDate);
     return today >= start && today <= end;
+  }).map(promo => {
+    // Get translated promotion
+    const translatedPromo = t.promotions[promo.id] || { 
+      title: promo.title, 
+      description: promo.description,
+      discount: promo.discount
+    };
+    return {
+      ...promo,
+      title: translatedPromo.title,
+      description: translatedPromo.description,
+      discount: translatedPromo.discount
+    };
   });
 
   // Calculate days remaining for a promotion
@@ -40,7 +59,17 @@ export default function CafeMenu() {
   };
 
   const allItems = menuData.categories.flatMap(cat => 
-    cat.items.map(item => ({ ...item, category: cat.id, categoryName: cat.name }))
+    cat.items.map(item => {
+      // Get translated item using the id as key
+      const translatedItem = t.menuItems[item.id] || { name: item.name, description: item.description };
+      return {
+        ...item,
+        name: translatedItem.name,
+        description: translatedItem.description,
+        category: cat.id,
+        categoryName: cat.name
+      };
+    })
   );
 
   const filteredItems = selectedCategory === 'all' 
@@ -51,9 +80,31 @@ export default function CafeMenu() {
     <div className="min-h-screen bg-gradient-to-br from-stone-50 via-white to-stone-100">
       {/* Header */}
       <div className="bg-gradient-to-r from-black to-gray-900 text-white py-10 px-4 shadow-2xl">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl font-bold mb-2 tracking-tight">{menuData.cafe}</h1>
-          <p className="text-stone-300 text-lg tracking-wide">Menu</p>
+        <div className="max-w-4xl mx-auto">
+          {/* Language Selector */}
+          <div className="flex justify-end mb-4">
+            <div className="flex items-center gap-1 bg-white bg-opacity-10 rounded-md p-0.5">
+              {['pt', 'en', 'fr'].map(lang => (
+                <button
+                  key={lang}
+                  onClick={() => setLanguage(lang)}
+                  className={`px-2 py-1 rounded text-xs font-semibold transition-all ${
+                    language === lang
+                      ? 'bg-white text-black'
+                      : 'text-white hover:bg-white hover:bg-opacity-20'
+                  }`}
+                >
+                  {lang.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          {/* Title */}
+          <div className="text-center">
+            <h1 className="text-5xl font-bold mb-2 tracking-tight">{menuData.cafe}</h1>
+            <p className="text-stone-300 text-lg tracking-wide">{t.menu}</p>
+          </div>
         </div>
       </div>
 
@@ -70,7 +121,7 @@ export default function CafeMenu() {
           <div className="max-w-4xl mx-auto py-6 px-4">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="text-black" size={24} />
-              <h2 className="text-2xl font-bold text-black">Ofertas Especiais</h2>
+              <h2 className="text-2xl font-bold text-black">{t.specialOffers}</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -79,7 +130,7 @@ export default function CafeMenu() {
                 return (
                   <div
                     key={promo.id}
-                    className={`relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer transform hover:scale-105 border border-gray-200 h-full`}
+                    className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all cursor-pointer transform hover:scale-105 border border-gray-200 h-full"
                   >
                     <div className={`bg-gradient-to-br ${promo.color} p-6 text-white h-full flex flex-col`}>
                       <div className="text-5xl mb-3">{promo.image}</div>
@@ -93,7 +144,7 @@ export default function CafeMenu() {
                         <div className="text-right text-xs">
                           <div className="flex items-center gap-1 justify-end mb-1">
                             <Clock size={12} />
-                            <span>{daysLeft} dias restantes</span>
+                            <span>{daysLeft} {t.daysLeft}</span>
                           </div>
                           {promo.categoryFilter && promo.categoryFilter !== 'all' && (
                             <span className="bg-white bg-opacity-20 px-2 py-1 rounded-full text-xs">
@@ -120,7 +171,7 @@ export default function CafeMenu() {
               className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold transition-colors"
             >
               <Sparkles size={20} />
-              View {activePromotions.length} Active Promotion{activePromotions.length > 1 ? 's' : ''}
+              {t.viewPromotions} {activePromotions.length} {activePromotions.length > 1 ? t.activePromotionsPlural : t.activePromotions}
             </button>
           </div>
         </div>
@@ -137,7 +188,7 @@ export default function CafeMenu() {
                 : 'bg-stone-100 text-gray-800 hover:bg-stone-200'
             }`}
           >
-            All
+            {t.all}
           </button>
           {menuData.categories.map(cat => {
             const Icon = cat.icon;

@@ -1,9 +1,8 @@
-import React from 'react';
 import { Facebook, Instagram, ExternalLink } from 'lucide-react';
 import Luis from "/luis.png"
 
 const Footer = () => {
-  //FOOTER INFO
+  // FOOTER INFO
   const footerData = {
     businessName: "Jogral Cafe & Brasserie",
     facebook: "https://www.facebook.com/Jogralbarbrasserie/?locale=pt_PT",
