@@ -329,7 +329,7 @@ export const MENU_CATEGORIES = [
           { id: 'amendoaAmarga', name: 'Amêndoa Amarga', price: '2.50', description: 'Licor português', image: '🌰' },
           { id: 'licorBeirao', name: 'Licor Beirão', price: '3.00', description: 'Licor português tradicional', image: '🌿' },
           { id: 'licorBeiraoHonra', name: 'Licor Beirão D\'honra', price: '4.50', description: 'Licor Beirão premium', image: '🌿' },
-          { id: 'licor35', name: 'Licor 35', price: '3.80', description: 'Licor de café', image: '🍫' }
+          { id: 'licor35', name: 'Licor 35', price: '3.80', description: 'Licor de Pastel de Nata', image: '🍫' }
         ]
       },
       {
@@ -339,7 +339,7 @@ export const MENU_CATEGORIES = [
           { id: 'baileys', name: 'Baileys', price: '4.00', description: 'Creme irlandês', image: '🥛' },
           { id: 'carolans', name: 'Carolans', price: '4.50', description: 'Creme irlandês', image: '🥛' },
           { id: 'macieiraCream', name: 'Macieira Cream', price: '4.00', description: 'Licor cremoso', image: '🍎' },
-          { id: 'macieiraCreamCaramelo', name: 'Maciera Cream Caramelo Salgado', price: '4.50', description: 'Licor com caramelo', image: '🍮' },
+          { id: 'macieiraCreamCaramelo', name: 'Maciera Cream Caramelo Salgado', price: '4.50', description: ' Cremoso com caramelo salgado', image: '🍮' },
           { id: 'disaronno', name: 'Disaronno', price: '5.00', description: 'Licor italiano de amêndoa', image: '🌰' },
           { id: 'drambuie', name: 'Drambuie', price: '6.00', description: 'Licor escocês de whisky', image: '🍯' }
         ]
@@ -352,7 +352,7 @@ export const MENU_CATEGORIES = [
           { id: 'jagermeister', name: 'Jagermeister', price: '5.00', description: 'Licor alemão de ervas', image: '🦌' },
           { id: 'pisang', name: 'Pisang', price: '3.50', description: 'Licor de banana', image: '🍌' },
           { id: 'sambuca', name: 'Sambuca', price: '3.50', description: 'Licor de anis', image: '🌱' },
-          { id: 'tijuana', name: 'Tijuana', price: '4.50', description: 'Licor de tequila', image: '☕' }
+          { id: 'tijuana', name: 'Tijuana', price: '4.50', description: 'Licor de café', image: '☕' }
         ]
       }
     ]
@@ -435,15 +435,6 @@ export const MENU_CATEGORIES = [
           { id: 'ginTonicBombay', name: 'Gin Tónico Bombay', price: '8.00', description: 'Bombay Saphire com tónica premium', image: '🍸' },
           { id: 'ginTonicHendricks', name: 'Gin Tónico Hendrick\'s', price: '9.00', description: 'Hendrick\'s com tónica premium', image: '🍸' },
           { id: 'ginTonicNordes', name: 'Gin Tónico Nordés', price: '10.00', description: 'Nordés com tónica premium', image: '🍸' }
-        ]
-      },
-      {
-        id: 'cocktailsEspeciais',
-        name: 'Cocktails Especiais da Casa',
-        items: [
-          { id: 'jograltini', name: 'Jograltini', price: '9.00', description: 'Cocktail especial da casa', image: '🍸' },
-          { id: 'sunsetJogral', name: 'Sunset Jogral', price: '9.00', description: 'Cocktail tropical da casa', image: '🌅' },
-          { id: 'brasserieFizz', name: 'Brasserie Fizz', price: '9.00', description: 'Cocktail refrescante', image: '✨' }
         ]
       }
     ]
