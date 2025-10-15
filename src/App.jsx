@@ -1,114 +1,54 @@
-import React, { useState } from 'react';
-import { Coffee, Wine, Utensils, X, Clock, Sparkles, Globe } from 'lucide-react';
-import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, PROMOTIONS } from './menuData';
-import { translations } from './translations';
-import Footer from './components/Footer';
+// src/App.jsx
+import React, { useState, useMemo } from "react";
+import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, PROMOTIONS } from "./menuData";
+import { ChevronLeft, ChevronRight, X, Clock, Sparkles } from "lucide-react";
+import Footer from "./components/Footer";
 
-export default function CafeMenu() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedItem, setSelectedItem] = useState(null);
+export default function App() {
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [showPromotions, setShowPromotions] = useState(true);
-  const [language, setLanguage] = useState('pt');
 
-  // Map icons to categories
-  const iconMap = {
-    'coffee': Coffee,
-    'drinks': Wine,
-    'food': Utensils
-  };
+  // === Lógica de promoções ===
+  const today = useMemo(() => {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    return d;
+  }, []);
 
-  // Get current translations
-  const t = translations[language];
-
-  const menuData = {
-    cafe: CAFE_NAME,
-    categories: MENU_CATEGORIES.map(cat => ({
-      ...cat,
-      icon: iconMap[cat.id] || Coffee,
-      name: t[cat.id]
-    }))
-  };
-
-  // Filter active promotions
-  const activePromotions = PROMOTIONS.filter(promo => {
-    const today = new Date();
+  const isPromoActive = (promo) => {
     const start = new Date(promo.startDate);
     const end = new Date(promo.endDate);
+    start.setHours(0, 0, 0, 0);
+    end.setHours(23, 59, 59, 999);
     return today >= start && today <= end;
-  }).map(promo => {
-    // Get translated promotion
-    const translatedPromo = t.promotions[promo.id] || { 
-      title: promo.title, 
-      description: promo.description,
-      discount: promo.discount
-    };
-    return {
-      ...promo,
-      title: translatedPromo.title,
-      description: translatedPromo.description,
-      discount: translatedPromo.discount
-    };
-  });
-
-  // Calculate days remaining for a promotion
-  const getDaysRemaining = (endDate) => {
-    const today = new Date();
-    const end = new Date(endDate);
-    const diff = Math.ceil((end - today) / (1000 * 60 * 60 * 24));
-    return diff;
   };
 
-  const allItems = menuData.categories.flatMap(cat => 
-    cat.items.map(item => {
-      // Get translated item using the id as key
-      const translatedItem = t.menuItems[item.id] || { name: item.name, description: item.description };
-      return {
-        ...item,
-        name: translatedItem.name,
-        description: translatedItem.description,
-        category: cat.id,
-        categoryName: cat.name
-      };
-    })
-  );
+  const activePromotions = PROMOTIONS.filter(isPromoActive);
 
-  const filteredItems = selectedCategory === 'all' 
-    ? allItems 
-    : allItems.filter(item => item.category === selectedCategory);
+  const getDaysRemaining = (endDate) => {
+    const end = new Date(endDate);
+    end.setHours(23, 59, 59, 999);
+    const diffMs = end - today;
+    return Math.max(0, Math.ceil(diffMs / (1000 * 60 * 60 * 24)));
+  };
 
+  // === Categorias ===
+  const handleCategoryClick = (categoryId) => {
+    setSelectedCategory((prev) => (prev === categoryId ? null : categoryId));
+  };
+
+  const selectedCatData = MENU_CATEGORIES.find((cat) => cat.id === selectedCategory);
+
+  // === UI ===
   return (
-    <div className="min-h-screen bg-gradient-to-br from-stone-50 via-white to-stone-100">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-50 to-white text-zinc-900 flex flex-col">
       {/* Header */}
-      <div className="bg-gradient-to-r from-black to-gray-900 text-white py-10 px-4 shadow-2xl">
-        <div className="max-w-4xl mx-auto">
-          {/* Language Selector */}
-          <div className="flex justify-end mb-4">
-            <div className="flex items-center gap-1 bg-white bg-opacity-10 rounded-md p-0.5">
-              {['pt', 'en', 'fr'].map(lang => (
-                <button
-                  key={lang}
-                  onClick={() => setLanguage(lang)}
-                  className={`px-2 py-1 rounded text-xs font-semibold transition-all ${
-                    language === lang
-                      ? 'bg-white text-black'
-                      : 'text-white hover:bg-white hover:bg-opacity-20'
-                  }`}
-                >
-                  {lang.toUpperCase()}
-                </button>
-              ))}
-            </div>
-          </div>
-          
-          {/* Title */}
-          <div className="text-center">
-            <h1 className="text-5xl font-bold mb-2 tracking-tight">{menuData.cafe}</h1>
-            <p className="text-stone-300 text-lg tracking-wide">{t.menu}</p>
-          </div>
-        </div>
-      </div>
+      <header className="bg-black text-white py-6 px-4 text-center shadow-md">
+        <h1 className="text-3xl font-bold tracking-tight">{CAFE_NAME}</h1>
+        <p className="text-sm text-gray-300 mt-1">Menu digital</p>
+      </header>
 
-      {/* Promotions Banner */}
+      {/* Promoções */}
       {activePromotions.length > 0 && showPromotions && (
         <div className="bg-white shadow-xl border-b-4 border-black relative">
           <button
@@ -117,15 +57,15 @@ export default function CafeMenu() {
           >
             <X size={20} />
           </button>
-          
+
           <div className="max-w-4xl mx-auto py-6 px-4">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="text-black" size={24} />
-              <h2 className="text-2xl font-bold text-black">{t.specialOffers}</h2>
+              <h2 className="text-2xl font-bold text-black">Ofertas Especiais</h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {activePromotions.map(promo => {
+              {activePromotions.map((promo) => {
                 const daysLeft = getDaysRemaining(promo.endDate);
                 return (
                   <div
@@ -134,9 +74,9 @@ export default function CafeMenu() {
                   >
                     <div className={`bg-gradient-to-br ${promo.color} p-6 text-white h-full flex flex-col`}>
                       <div className="text-5xl mb-3">{promo.image}</div>
-                      <h3 className="text-xl font-bold mb-2 min-h-[3.5rem] line-clamp-2">{promo.title}</h3>
-                      <p className="text-sm mb-3 opacity-90 flex-grow min-h-[2.5rem] line-clamp-2">{promo.description}</p>
-                      
+                      <h3 className="text-xl font-bold mb-2">{promo.title}</h3>
+                      <p className="text-sm mb-3 opacity-90 flex-grow">{promo.description}</p>
+
                       <div className="flex items-center justify-between mt-auto">
                         <span className="text-3xl font-bold bg-white text-black px-4 py-2 rounded-lg shadow-md">
                           {promo.discount}
@@ -144,9 +84,9 @@ export default function CafeMenu() {
                         <div className="text-right text-xs">
                           <div className="flex items-center gap-1 justify-end mb-1">
                             <Clock size={12} />
-                            <span>{daysLeft} {t.daysLeft}</span>
+                            <span>{daysLeft} dias restantes</span>
                           </div>
-                          {promo.categoryFilter && promo.categoryFilter !== 'all' && (
+                          {promo.categoryFilter && promo.categoryFilter !== "all" && (
                             <span className="bg-white bg-opacity-20 px-2 py-1 rounded-full text-xs">
                               {promo.categoryFilter}
                             </span>
@@ -162,7 +102,7 @@ export default function CafeMenu() {
         </div>
       )}
 
-      {/* Show Promotions Button (when hidden) */}
+      {/* Botão para mostrar promoções novamente */}
       {!showPromotions && activePromotions.length > 0 && (
         <div className="bg-stone-100 border-b border-stone-200">
           <div className="max-w-4xl mx-auto py-3 px-4">
@@ -171,104 +111,85 @@ export default function CafeMenu() {
               className="flex items-center gap-2 text-black hover:text-gray-700 font-semibold transition-colors"
             >
               <Sparkles size={20} />
-              {t.viewPromotions} {activePromotions.length} {activePromotions.length > 1 ? t.activePromotionsPlural : t.activePromotions}
+              Ver Promoções ({activePromotions.length})
             </button>
           </div>
         </div>
       )}
 
-      {/* Category Filter */}
-      <div className="sticky top-0 bg-white shadow-lg z-10 py-4 px-4 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto flex gap-2 overflow-x-auto">
-          <button
-            onClick={() => setSelectedCategory('all')}
-            className={`px-5 py-2.5 rounded-lg whitespace-nowrap transition-all font-semibold ${
-              selectedCategory === 'all'
-                ? 'bg-black text-white shadow-lg'
-                : 'bg-stone-100 text-gray-800 hover:bg-stone-200'
-            }`}
-          >
-            {t.all}
-          </button>
-          {menuData.categories.map(cat => {
-            const Icon = cat.icon;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-lg whitespace-nowrap transition-all flex items-center gap-2 font-semibold ${
-                  selectedCategory === cat.id
-                    ? 'bg-black text-white shadow-lg'
-                    : 'bg-stone-100 text-gray-800 hover:bg-stone-200'
-                }`}
-              >
-                <Icon size={16} />
-                {cat.name}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Menu Items */}
-      <div className="max-w-4xl mx-auto p-4 pb-8">
-        <div className="grid gap-4 md:grid-cols-2">
-          {filteredItems.map((item, idx) => (
-            <div
-              key={idx}
-              onClick={() => setSelectedItem(item)}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all cursor-pointer p-6 border border-gray-200 hover:border-gray-400"
+      {/* Lista de categorias principais */}
+      {!selectedCategory && (
+        <div className="flex-1 overflow-y-auto p-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {MENU_CATEGORIES.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => handleCategoryClick(cat.id)}
+              className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md active:scale-[0.98] transition-all p-4 flex flex-col justify-center items-center text-center"
             >
-              <div className="flex justify-between items-start mb-2">
-                <div className="flex items-center gap-3">
-                  {item.image && <span className="text-3xl">{item.image}</span>}
-                  <h3 className="text-lg font-bold text-gray-900">{item.name}</h3>
-                </div>
-                <span className="text-xl font-bold text-black">{CURRENCY}{item.price}</span>
+              <div className="text-4xl mb-2">
+                {cat.id.includes("cafeteria")
+                  ? "☕"
+                  : cat.id === "cocktails"
+                  ? "🍸"
+                  : cat.id === "beersAndCiders"
+                  ? "🍺"
+                  : cat.id === "spirits"
+                  ? "🥃"
+                  : cat.id === "liqueurs"
+                  ? "🌰"
+                  : cat.id === "aperitifs"
+                  ? "🍷"
+                  : "🍹"}
               </div>
-              <p className="text-gray-600 text-sm">{item.description}</p>
-              {selectedCategory === 'all' && (
-                <span className="inline-block mt-2 text-xs px-3 py-1 bg-stone-100 text-gray-800 rounded-full font-semibold">
-                  {item.categoryName}
-                </span>
-              )}
-            </div>
+              <span className="font-semibold text-sm">{cat.name}</span>
+              <ChevronRight size={18} className="text-gray-400 mt-1" />
+            </button>
           ))}
         </div>
-      </div>
+      )}
 
-      {/* Item Detail Modal */}
-      {selectedItem && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-60 flex items-end md:items-center justify-center z-50 p-4"
-          onClick={() => setSelectedItem(null)}
-        >
-          <div 
-            className="bg-white rounded-t-3xl md:rounded-2xl p-6 max-w-md w-full shadow-2xl"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="flex justify-between items-start mb-4">
-              <div className="flex items-center gap-3">
-                {selectedItem.image && <span className="text-5xl">{selectedItem.image}</span>}
-                <h2 className="text-2xl font-bold text-gray-900">{selectedItem.name}</h2>
+      {/* Subcategorias e itens da categoria selecionada */}
+      {selectedCategory && selectedCatData && (
+        <div className="flex-1 overflow-y-auto">
+          <div className="sticky top-0 bg-white border-b border-gray-200 shadow-sm flex items-center p-4">
+            <button
+              onClick={() => setSelectedCategory(null)}
+              className="flex items-center text-gray-700 hover:text-black transition-colors"
+            >
+              <ChevronLeft size={22} />
+              <span className="ml-1 font-semibold text-sm">Voltar</span>
+            </button>
+            <h2 className="text-lg font-bold text-center flex-1">{selectedCatData.name}</h2>
+          </div>
+
+          <div className="p-4 space-y-6">
+            {selectedCatData.subcategories.map((sub) => (
+              <div key={sub.id}>
+                <h3 className="text-md font-semibold mb-3 text-gray-700 border-l-4 border-black pl-2">
+                  {sub.name}
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {sub.items.map((item) => (
+                    <div
+                      key={item.id}
+                      className="bg-white rounded-xl shadow-sm border border-gray-200 p-3 flex flex-col justify-between text-center active:scale-[0.98] transition-all"
+                    >
+                      <div className="text-3xl mb-1">{item.image}</div>
+                      <h4 className="font-bold text-sm">{item.name}</h4>
+                      <p className="text-xs text-gray-500">{item.description}</p>
+                      <p className="text-sm font-semibold mt-2">
+                        {item.price} {CURRENCY}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <button 
-                onClick={() => setSelectedItem(null)}
-                className="text-gray-400 hover:text-black transition-colors"
-              >
-                <X size={24} />
-              </button>
-            </div>
-            <p className="text-gray-600 mb-4 text-base">{selectedItem.description}</p>
-            <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-              <span className="text-sm text-gray-500 font-semibold uppercase tracking-wide">{selectedItem.categoryName}</span>
-              <span className="text-3xl font-bold text-black">{CURRENCY}{selectedItem.price}</span>
-            </div>
+            ))}
           </div>
         </div>
       )}
 
-      {/* Footer */}
       <Footer />
     </div>
   );
