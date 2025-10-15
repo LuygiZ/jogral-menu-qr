@@ -1,11 +1,8 @@
-// src/menuData.js
-// Edit this file to update your menu
-
 export const CAFE_NAME = "Jogral Bar & Brasserie";
 
 export const CURRENCY = "€";
 
-// PROMOTIONS - Add your special offers here
+// PROMOTIONS
 export const PROMOTIONS = [
   {
     id: 'happyHour',
