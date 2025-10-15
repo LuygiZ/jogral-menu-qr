@@ -131,6 +131,8 @@ export default function App() {
                   ? "☕"
                   : cat.id === "cocktails"
                   ? "🍸"
+                  : cat.id === "comida"
+                  ? "🍔"
                   : cat.id === "beersAndCiders"
                   ? "🍺"
                   : cat.id === "spirits"

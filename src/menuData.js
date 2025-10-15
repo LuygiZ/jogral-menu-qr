@@ -17,6 +17,17 @@ export const PROMOTIONS = [
     categoryFilter: "all",
     image: "🍺",
     color: "from-gray-900 to-gray-700"
+  },
+  {
+    id: 'happyHour',
+    title: "Especial Happy Hour",
+    description: "Em todas as Canecas",
+    discount: "2.40€",
+    startDate: "2025-10-01", // YYYY-MM-DD format
+    endDate: "2025-10-31",
+    categoryFilter: "all",
+    image: "🍺",
+    color: "from-gray-900 to-gray-700"
   }
 ];
 
@@ -29,26 +40,133 @@ export const MENU_CATEGORIES = [
         id: 'cafe',
         name: 'Café',
         items: [
+          { id: 'cafe', name: 'Café', price: '0.90', description: 'Café', image: '☕' },
           { id: 'espresso', name: 'Espresso', price: '1.20', description: 'Café expresso', image: '☕' },
           { id: 'cafeDuplo', name: 'Café Duplo', price: '1.80', description: 'Expresso duplo', image: '☕' },
           { id: 'meiaDeLeite', name: 'Meia de Leite', price: '1.50', description: 'Café com leite', image: '☕' },
           { id: 'galao', name: 'Galão', price: '1.80', description: 'Café com muito leite', image: '☕' },
           { id: 'cappuccino', name: 'Cappuccino', price: '2.50', description: 'Café italiano', image: '☕' },
-          { id: 'cafeComCheirinho', name: 'Café com Cheirinho', price: '2.00', description: 'Café com licor', image: '☕' }
-        ]
-      },
-      {
-        id: 'pastelaria',
-        name: 'Pastelaria',
-        items: [
-          { id: 'croissant', name: 'Croissant', price: '1.50', description: 'Simples ou misto', image: '🥐' },
-          { id: 'torrada', name: 'Torrada', price: '1.20', description: 'Com manteiga', image: '🍞' },
-          { id: 'boloDodia', name: 'Bolo do Dia', price: '2.50', description: 'Conforme disponibilidade', image: '🍰' },
-          { id: 'tosta', name: 'Tosta Mista', price: '3.50', description: 'Fiambre e queijo', image: '🥪' }
         ]
       }
     ]
   },
+{
+  id: 'comida',
+  name: 'Comida',
+  subcategories: [
+    {
+      id: 'entradas',
+      name: 'Entradas',
+      items: [
+        { id: 'paoAlho', name: 'Pão de Alho', price: '1.90', description: '', image: '🍞' },
+        { id: 'paoAlhoQueijo', name: 'Pão de Alho com Queijo', price: '2.40', description: '', image: '🧀' },
+        { id: 'queijoDoceAbobora', name: 'Queijo e Doce de Abóbora', price: '3.50', description: '', image: '🍯' },
+      ],
+    },
+    {
+      id: 'bruschettas',
+      name: 'Bruschettas',
+      items: [
+        { id: 'bruschettaBacon', name: 'Bacon', price: '3.00', description: '', image: '🥓' },
+        { id: 'bruschettaChourico', name: 'Chouriço', price: '3.00', description: '', image: '🌶️' },
+        { id: 'bruschettaCebola', name: 'Cebola Frita', price: '3.00', description: '', image: '🧅' },
+        { id: 'bruschettaTomate', name: 'Tomate', price: '3.00', description: '', image: '🍅' },
+      ],
+    },
+    {
+      id: 'tostas',
+      name: 'Tostas',
+      items: [
+        { id: 'tostaMista', name: 'Mista', price: '3.60', description: 'Pão caseiro, fiambre e queijo', image: '🥪' },
+        { id: 'tostaTomate', name: 'Tomate', price: '3.60', description: 'Pão caseiro, tomate e queijo', image: '🍅' },
+        { id: 'tostaAtum', name: 'Atum', price: '5.00', description: 'Pão caseiro, pasta de atum e queijo', image: '🐟' },
+      ],
+    },
+    {
+      id: 'classicos',
+      name: 'Clássicos',
+      items: [
+        { id: 'paoChourico', name: 'Pão com Chouriço', price: '3.60', description: '', image: '🥖' },
+        { id: 'paoBolonhesa', name: 'Pão com Bolonhesa', price: '4.50', description: '', image: '🍝' },
+      ],
+    },
+    {
+      id: 'hamburgers',
+      name: 'Hamburgers',
+      items: [
+        {
+          id: 'supremeCaco',
+          name: 'Supreme do Caco',
+          price: '7.50',
+          description: '100% carne angus, bolo do caco, bacon, queijo, alface, tomate, cebola frita e molho jogral',
+          image: '🍔',
+        },
+        {
+          id: 'supreme',
+          name: 'Supreme',
+          price: '7.00',
+          description: '100% carne angus, pão de hamburger, bacon, queijo, alface, tomate, cebola frita e molho jogral',
+          image: '🍔',
+        },
+      ],
+    },
+    {
+      id: 'jogralSpecials',
+      name: 'Jogral Specials',
+      items: [
+        {
+          id: 'americanCiabatta',
+          name: 'American Ciabatta',
+          price: '6.80',
+          description: 'Pão ciabatta, carne angus, cebola frita, bacon, queijo e maionese',
+          image: '🥩',
+        },
+        {
+          id: 'croqueJogral',
+          name: 'Croque Jogral',
+          price: '4.30',
+          description: 'Pão caseiro, queijo, fiambre e mozzarella gratinada',
+          image: '🧀',
+        },
+        {
+          id: 'jogralHotDog',
+          name: 'Jogral Hot Dog',
+          price: '3.00',
+          description: 'Pão de hot dog, salsicha frankfurt, batata palha, ketchup, maionese e mostarda',
+          image: '🌭',
+        },
+      ],
+    },
+    {
+      id: 'tabuas',
+      name: 'Tábuas',
+      items: [
+        {
+          id: 'tabuaAlentejana',
+          name: 'Tábua Alentejana',
+          price: '6.50',
+          description: 'Paio, salsichão, paio preto e pão torrado',
+          image: '🥓',
+        },
+        {
+          id: 'tabuaJogral',
+          name: 'Tábua Jogral',
+          price: '9.00',
+          description: 'Paio, salsichão, paio preto, queijo curado, doce de abóbora e pão torrado',
+          image: '🧀',
+        },
+      ],
+    },
+    {
+      id: 'extras',
+      name: 'Extras',
+      items: [
+        { id: 'extraIngredientes', name: 'Extra Ingredientes', price: '0.50', description: '', image: '➕' },
+        { id: 'extraBatata', name: 'Extra Batata', price: '0.50', description: '', image: '🍟' },
+      ],
+    },
+  ],
+},
   {
     id: 'softDrinks',
     name: 'Refrigerantes & Sumos',
