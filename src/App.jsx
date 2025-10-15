@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState, useMemo } from "react";
 import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, PROMOTIONS } from "./menuData";
 import { ChevronLeft, ChevronRight, X, Clock, Sparkles } from "lucide-react";
