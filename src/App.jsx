@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { CAFE_NAME, CURRENCY, MENU_CATEGORIES, PROMOTIONS } from "./menuData";
 import { ChevronLeft, ChevronRight, X, Clock, Sparkles } from "lucide-react";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
