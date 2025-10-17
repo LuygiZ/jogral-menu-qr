@@ -28,6 +28,40 @@ export const PROMOTIONS = [
   }
 ];
 
+// WEEKLY RECURRING PROMOTIONS (by day of week)
+export const WEEKLY_PROMOTIONS = [
+  {
+    id: 'tuesdayLicores',
+    dayOfWeek: 2, // Tuesday (0=Sunday, 1=Monday, 2=Tuesday, etc.)
+    title: "Terça-Feira de Licores",
+    description: "Licores Portugueses",
+    discount: "Bebe 3 Paga 2",
+    categoryFilter: "liqueurs",
+    image: "🌰",
+    color: "from-amber-600 to-amber-800"
+  },
+  {
+    id: 'wednesdayBeer',
+    dayOfWeek: 3, // Wednesday
+    title: "Quarta-Feira de Cerveja",
+    description: "Imperial Happy Hour",
+    discount: "1.10€",
+    categoryFilter: "beersAndCiders",
+    image: "🍺",
+    color: "from-yellow-600 to-yellow-800"
+  },
+  {
+    id: 'thursdayCocktails',
+    dayOfWeek: 5, // Thursday
+    title: "Sexta-Feira de Cocktails",
+    description: "Todos os cocktails",
+    discount: "Bebe 3 Paga 2",
+    categoryFilter: "cocktails",
+    image: "🍹",
+    color: "from-pink-600 to-pink-800"
+  }
+];
+
 export const MENU_CATEGORIES = [
   {
     id: 'cafeteria',
