@@ -52,8 +52,8 @@ export const WEEKLY_PROMOTIONS = [
   },
   {
     id: 'thursdayCocktails',
-    dayOfWeek: 5, // Thursday
-    title: "Sexta-Feira de Cocktails",
+    dayOfWeek: 4, // Thursday
+    title: "Quinta-Feira de Cocktails",
     description: "Todos os cocktails",
     discount: "Bebe 3 Paga 2",
     categoryFilter: "cocktails",
