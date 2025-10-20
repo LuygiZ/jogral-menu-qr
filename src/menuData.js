@@ -99,7 +99,7 @@ export const MENU_CATEGORIES = [
       name: 'Bruschettas',
       items: [
         { id: 'bruschettaBacon', name: 'Bacon', price: '3.00', description: '', image: '🥓' },
-        { id: 'bruschettaChourico', name: 'Chouriço', price: '3.00', description: '', image: '🌶️' },
+        { id: 'bruschettaChourico', name: 'Chouriço', price: '3.00', description: '', image: '🥖' },
         { id: 'bruschettaCebola', name: 'Cebola Frita', price: '3.00', description: '', image: '🧅' },
         { id: 'bruschettaTomate', name: 'Tomate', price: '3.00', description: '', image: '🍅' },
       ],

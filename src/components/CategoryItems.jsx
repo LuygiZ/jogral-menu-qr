@@ -22,7 +22,8 @@ export default function CategoryItems({ category, goBack }) {
               {sub.name}
             </h3>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {/* Alterado para sempre ter 2 colunas fixas */}
+            <div className="grid grid-cols-2 gap-4">
               {sub.items.map((item) => (
                 <div
                   key={item.id}
