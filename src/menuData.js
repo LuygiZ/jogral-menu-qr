@@ -72,153 +72,222 @@ export const MENU_CATEGORIES = [
         name: 'Café',
         items: [
           { id: 'cafe', name: 'Café', price: '0.90', description: 'Café', image: '☕' },
+          { id: 'descafeinado', name: 'Descafeinado', price: '0.90', description: 'Café sem cafeína', image: '☕' },
           { id: 'espresso', name: 'Espresso', price: '1.20', description: 'Café expresso', image: '☕' },
           { id: 'cafeDuplo', name: 'Café Duplo', price: '1.80', description: 'Expresso duplo', image: '☕' },
+          { id: 'carioca', name: 'Carioca', price: '0.90', description: 'Café carioca', image: '☕' },
           { id: 'meiaDeLeite', name: 'Meia de Leite', price: '1.50', description: 'Café com leite', image: '☕' },
-          { id: 'galao', name: 'Galão', price: '1.80', description: 'Café com muito leite', image: '☕' },
-          { id: 'cappuccino', name: 'Cappuccino', price: '2.50', description: 'Café italiano', image: '☕' },
+          { id: 'galao', name: 'Galão', price: '1.30', description: 'Café com muito leite', image: '☕' },
+          { id: 'cappuccino', name: 'Cappuccino', price: '1.80', description: 'Café italiano', image: '☕' },
+          { id: 'mocha', name: 'Mocha', price: '1.80', description: 'Café com chocolate', image: '☕' },
+          { id: 'chocolateQuente', name: 'Chocolate Quente', price: '1.80', description: 'Chocolate quente', image: '🍫' },
+          { id: 'chocolateNatas', name: 'Chocolate Quente com Natas', price: '2.00', description: 'Chocolate com natas', image: '🍫' },
+        ]
+      },
+      {
+        id: 'cha',
+        name: 'Chá',
+        items: [
+          { id: 'chaLimao', name: 'Limão', price: '1.10', description: 'Chá de limão', image: '🍋' },
+          { id: 'chaPretoLimao', name: 'Preto & Limão', price: '1.10', description: 'Chá preto com limão', image: '🍋' },
+          { id: 'chaLimaoGengibre', name: 'Limão & Gengibre', price: '1.10', description: 'Chá de limão e gengibre', image: '🍋' },
+          { id: 'chaEnglishBreakfast', name: 'English Breakfast', price: '1.10', description: 'Chá inglês', image: '☕' },
+          { id: 'chaCamomila', name: 'Camomila', price: '1.10', description: 'Chá de camomila', image: '🌼' },
+          { id: 'chaCamomilaMel', name: 'Camomila & Mel', price: '1.10', description: 'Camomila com mel', image: '🍯' },
+          { id: 'chaCidreira', name: 'Cidreira', price: '1.10', description: 'Chá de cidreira', image: '🌿' },
+          { id: 'chaCidreiraMel', name: 'Cidreira & Mel', price: '1.10', description: 'Cidreira com mel', image: '🍯' },
+          { id: 'chaVerde', name: 'Verde', price: '1.10', description: 'Chá verde', image: '🍵' },
+          { id: 'chaVerdeMel', name: 'Verde, Mel, Limão & Gengibre', price: '1.10', description: 'Chá verde especial', image: '🍵' },
+          { id: 'chaHortela', name: 'Hortelã / Mint', price: '1.10', description: 'Chá de hortelã', image: '🌿' },
+          { id: 'chaFrutosVermelhos', name: 'Frutos Vermelhos', price: '1.10', description: 'Chá de frutos vermelhos', image: '🍓' },
+          { id: 'chaMirtilo', name: 'Mirtilo', price: '1.10', description: 'Chá de mirtilo', image: '🫐' },
+          { id: 'chaOliveira', name: 'Oliveira', price: '1.10', description: 'Chá de oliveira', image: '🫒' },
+          { id: 'chaMangoBlackcurrant', name: 'Mango & Blackcurrant', price: '1.10', description: 'Chá de manga e groselha', image: '🥭' },
+          { id: 'chaMacaCanela', name: 'Maçã & Canela', price: '1.10', description: 'Chá de maçã e canela', image: '🍎' },
+          { id: 'chaPrincipe', name: 'Príncipe', price: '1.10', description: 'Chá príncipe', image: '☕' },
+          { id: 'chaGengibre', name: 'Gengibre', price: '1.10', description: 'Chá de gengibre', image: '🫚' },
+          { id: 'chaFrutosFloresta', name: 'Frutos da Floresta', price: '1.10', description: 'Chá de frutos da floresta', image: '🍒' },
+          { id: 'chaTilia', name: 'Tília', price: '1.10', description: 'Chá de tília', image: '🌸' },
         ]
       }
     ]
   },
-{
-  id: 'comida',
-  name: 'Comida',
-  subcategories: [
-    {
-      id: 'entradas',
-      name: 'Entradas',
-      items: [
-        { id: 'paoAlho', name: 'Pão de Alho', price: '1.90', description: '', image: '🍞' },
-        { id: 'paoAlhoQueijo', name: 'Pão de Alho com Queijo', price: '2.40', description: '', image: '🧀' },
-        { id: 'queijoDoceAbobora', name: 'Queijo e Doce de Abóbora', price: '3.50', description: '', image: '🍯' },
-      ],
-    },
-    {
-      id: 'bruschettas',
-      name: 'Bruschettas',
-      items: [
-        { id: 'bruschettaBacon', name: 'Bacon', price: '3.00', description: '', image: '🥓' },
-        { id: 'bruschettaChourico', name: 'Chouriço', price: '3.00', description: '', image: '🥖' },
-        { id: 'bruschettaCebola', name: 'Cebola Frita', price: '3.00', description: '', image: '🧅' },
-        { id: 'bruschettaTomate', name: 'Tomate', price: '3.00', description: '', image: '🍅' },
-      ],
-    },
-    {
-      id: 'tostas',
-      name: 'Tostas',
-      items: [
-        { id: 'tostaMista', name: 'Mista', price: '3.60', description: 'Pão caseiro, fiambre e queijo', image: '🥪' },
-        { id: 'tostaTomate', name: 'Tomate', price: '3.60', description: 'Pão caseiro, tomate e queijo', image: '🍅' },
-        { id: 'tostaAtum', name: 'Atum', price: '5.00', description: 'Pão caseiro, pasta de atum e queijo', image: '🐟' },
-      ],
-    },
-    {
-      id: 'classicos',
-      name: 'Clássicos',
-      items: [
-        { id: 'paoChourico', name: 'Pão com Chouriço', price: '3.60', description: '', image: '🥖' },
-        { id: 'paoBolonhesa', name: 'Pão com Bolonhesa', price: '4.50', description: '', image: '🍝' },
-      ],
-    },
-    {
-      id: 'hamburgers',
-      name: 'Hamburgers',
-      items: [
-        {
-          id: 'supremeCaco',
-          name: 'Supreme do Caco',
-          price: '7.50',
-          description: '100% carne angus, bolo do caco, bacon, queijo, alface, tomate, cebola frita e molho jogral',
-          image: '🍔',
-        },
-        {
-          id: 'supreme',
-          name: 'Supreme',
-          price: '7.00',
-          description: '100% carne angus, pão de hamburger, bacon, queijo, alface, tomate, cebola frita e molho jogral',
-          image: '🍔',
-        },
-      ],
-    },
-    {
-      id: 'jogralSpecials',
-      name: 'Jogral Specials',
-      items: [
-        {
-          id: 'americanCiabatta',
-          name: 'American Ciabatta',
-          price: '6.80',
-          description: 'Pão ciabatta, carne angus, cebola frita, bacon, queijo e maionese',
-          image: '🥩',
-        },
-        {
-          id: 'croqueJogral',
-          name: 'Croque Jogral',
-          price: '4.30',
-          description: 'Pão caseiro, queijo, fiambre e mozzarella gratinada',
-          image: '🧀',
-        },
-        {
-          id: 'jogralHotDog',
-          name: 'Jogral Hot Dog',
-          price: '3.00',
-          description: 'Pão de hot dog, salsicha frankfurt, batata palha, ketchup, maionese e mostarda',
-          image: '🌭',
-        },
-      ],
-    },
-    {
-      id: 'tabuas',
-      name: 'Tábuas',
-      items: [
-        {
-          id: 'tabuaAlentejana',
-          name: 'Tábua Alentejana',
-          price: '6.50',
-          description: 'Paio, salsichão, paio preto e pão torrado',
-          image: '🥓',
-        },
-        {
-          id: 'tabuaJogral',
-          name: 'Tábua Jogral',
-          price: '9.00',
-          description: 'Paio, salsichão, paio preto, queijo curado, doce de abóbora e pão torrado',
-          image: '🧀',
-        },
-      ],
-    },
-    {
-      id: 'extras',
-      name: 'Extras',
-      items: [
-        { id: 'extraIngredientes', name: 'Extra Ingredientes', price: '0.50', description: '', image: '➕' },
-        { id: 'extraBatata', name: 'Extra Batata', price: '0.50', description: '', image: '🍟' },
-      ],
-    },
-  ],
-},
+  {
+    id: 'comida',
+    name: 'Comida',
+    subcategories: [
+      {
+        id: 'entradas',
+        name: 'Entradas',
+        items: [
+          { id: 'paoAlho', name: 'Pão de Alho', price: '1.90', description: '', image: '🍞' },
+          { id: 'paoAlhoQueijo', name: 'Pão de Alho com Queijo', price: '2.40', description: '', image: '🧀' },
+          { id: 'queijoDoceAbobora', name: 'Queijo e Doce de Abóbora', price: '3.50', description: '', image: '🍯' },
+        ],
+      },
+      {
+        id: 'bruschettas',
+        name: 'Bruschettas',
+        items: [
+          { id: 'bruschettaBacon', name: 'Bacon', price: '3.00', description: '', image: '🥓' },
+          { id: 'bruschettaChourico', name: 'Chouriço', price: '3.00', description: '', image: '🥖' },
+          { id: 'bruschettaCebola', name: 'Cebola Frita', price: '3.00', description: '', image: '🧅' },
+          { id: 'bruschettaTomate', name: 'Tomate', price: '3.00', description: '', image: '🍅' },
+        ],
+      },
+      {
+        id: 'tostas',
+        name: 'Tostas',
+        items: [
+          { id: 'tostaMista', name: 'Mista', price: '3.60', description: 'Pão caseiro, fiambre e queijo', image: '🥪' },
+          { id: 'tostaTomate', name: 'Tomate', price: '3.60', description: 'Pão caseiro, tomate e queijo', image: '🍅' },
+          { id: 'tostaAtum', name: 'Atum', price: '5.00', description: 'Pão caseiro, pasta de atum e queijo', image: '🐟' },
+        ],
+      },
+      {
+        id: 'classicos',
+        name: 'Clássicos',
+        items: [
+          { id: 'paoChourico', name: 'Pão com Chouriço', price: '3.60', description: '', image: '🥖' },
+          { id: 'paoBolonhesa', name: 'Pão com Bolonhesa', price: '4.50', description: '', image: '🍝' },
+        ],
+      },
+      {
+        id: 'hamburgers',
+        name: 'Hamburgers',
+        items: [
+          {
+            id: 'supremeCaco',
+            name: 'Supreme do Caco',
+            price: '7.50',
+            description: '100% carne angus, bolo do caco, bacon, queijo, alface, tomate, cebola frita e molho jogral',
+            image: '🍔',
+          },
+          {
+            id: 'supreme',
+            name: 'Supreme',
+            price: '7.00',
+            description: '100% carne angus, pão de hamburger, bacon, queijo, alface, tomate, cebola frita e molho jogral',
+            image: '🍔',
+          },
+        ],
+      },
+      {
+        id: 'jogralSpecials',
+        name: 'Jogral Specials',
+        items: [
+          {
+            id: 'americanCiabatta',
+            name: 'American Ciabatta',
+            price: '6.80',
+            description: 'Pão ciabatta, carne angus, cebola frita, bacon, queijo e maionese',
+            image: '🥩',
+          },
+          {
+            id: 'croqueJogral',
+            name: 'Croque Jogral',
+            price: '4.30',
+            description: 'Pão caseiro, queijo, fiambre e mozzarella gratinada',
+            image: '🧀',
+          },
+          {
+            id: 'jogralHotDog',
+            name: 'Jogral Hot Dog',
+            price: '3.00',
+            description: 'Pão de hot dog, salsicha frankfurt, batata palha, ketchup, maionese e mostarda',
+            image: '🌭',
+          },
+        ],
+      },
+      {
+        id: 'tabuas',
+        name: 'Tábuas',
+        items: [
+          {
+            id: 'tabuaAlentejana',
+            name: 'Tábua Alentejana',
+            price: '6.50',
+            description: 'Paio, salsichão, paio preto e pão torrado',
+            image: '🥓',
+          },
+          {
+            id: 'tabuaJogral',
+            name: 'Tábua Jogral',
+            price: '9.00',
+            description: 'Paio, salsichão, paio preto, queijo curado, doce de abóbora e pão torrado',
+            image: '🧀',
+          },
+        ],
+      },
+      {
+        id: 'snacks',
+        name: 'Snacks',
+        items: [
+          { id: 'pringles', name: 'Pringles', price: '2.00', description: '', image: '🥔' },
+          { id: 'amendoimSalgado', name: 'Amendoim Salgado', price: '1.30', description: '', image: '🥜' },
+          { id: 'pistacho', name: 'Pistacho', price: '2.00', description: '', image: '🌰' },
+          { id: 'tirasMilho', name: 'Tiras de Milho', price: '2.00', description: '', image: '🌽' },
+        ],
+      },
+      {
+        id: 'sweets',
+        name: 'Sweets',
+        items: [
+          { id: 'lion', name: 'Lion', price: '1.60', description: 'Chocolate', image: '🍫' },
+          { id: 'mars', name: 'Mars', price: '1.60', description: 'Chocolate', image: '🍫' },
+          { id: 'snickers', name: 'Snickers', price: '1.60', description: 'Chocolate', image: '🍫' },
+          { id: 'kinderBueno', name: 'Kinder Bueno', price: '1.80', description: 'Chocolate', image: '🍫' },
+        ],
+      },
+      {
+        id: 'extras',
+        name: 'Extras',
+        items: [
+          { id: 'extraIngredientes', name: 'Extra Ingredientes', price: '0.50', description: '', image: '➕' },
+          { id: 'extraBatata', name: 'Extra Batata', price: '0.50', description: '', image: '🍟' },
+        ],
+      },
+    ],
+  },
   {
     id: 'softDrinks',
     name: 'Refrigerantes & Sumos',
     subcategories: [
       {
+        id: 'aguas',
+        name: 'Águas',
+        items: [
+          { id: 'vitalis33cl', name: 'Vitalis 0.33cl', price: '1.00', description: 'Água', image: '💧' },
+          { id: 'vitalis50cl', name: 'Vitalis 0.50cl', price: '1.20', description: 'Água', image: '💧' },
+          { id: 'aguaCastelo', name: 'Água Castelo', price: '1.30', description: 'Água mineral', image: '💧' },
+          { id: 'pedrasSalgadas', name: 'Pedras Salgadas', price: '1.40', description: 'Água com gás', image: '💧' },
+          { id: 'pedrasSabores', name: 'Pedras Sabores', price: '1.50', description: 'Água com sabor', image: '💧' },
+          { id: 'frizeSabores', name: 'Frize Sabores', price: '1.50', description: 'Água com sabor', image: '💧' },
+        ]
+      },
+      {
         id: 'refrigerantes',
         name: 'Refrigerantes',
         items: [
-          { id: 'cocaCola', name: 'Coca-Cola', price: '2.00', description: '33cl', image: '🥤' },
-          { id: 'cocaColaZero', name: 'Coca-Cola Zero', price: '2.00', description: '33cl', image: '🥤' },
-          { id: 'fanta', name: 'Fanta Laranja', price: '2.00', description: '33cl', image: '🥤' },
-          { id: 'sprite', name: 'Sprite', price: '2.00', description: '33cl', image: '🥤' },
-          { id: 'iceTea', name: 'Ice Tea', price: '2.00', description: 'Pêssego ou Limão', image: '🧃' },
-          { id: 'agua', name: 'Água', price: '1.50', description: 'Com ou sem gás', image: '💧' }
+          { id: 'refrigerante20cl', name: 'Refrigerantes 0.20cl', price: '1.50', description: 'Vários sabores', image: '🥤' },
+          { id: 'cocaCola', name: 'Coca-Cola', price: '1.80', description: '33cl', image: '🥤' },
+          { id: 'cocaColaZero', name: 'Coca-Cola Zero', price: '1.80', description: '33cl', image: '🥤' },
+          { id: 'sevenUp', name: '7 Up', price: '1.70', description: '33cl', image: '🥤' },
+          { id: 'sumol', name: 'Sumol', price: '1.70', description: 'Vários sabores', image: '🥤' },
+          { id: 'iceTea', name: 'Ice Tea', price: '1.70', description: 'Pêssego ou Limão', image: '🧃' },
+          { id: 'compal', name: 'Compal', price: '1.60', description: 'Vários sabores', image: '🧃' },
+          { id: 'groselha', name: 'Groselha', price: '1.00', description: 'Xarope de groselha', image: '🍒' },
+          { id: 'aguaTonica', name: 'Água Tónica', price: '1.90', description: 'Tónica', image: '🥤' },
+          { id: 'gingerAle', name: 'Ginger Ale', price: '1.80', description: 'Refrigerante de gengibre', image: '🥤' },
+          { id: 'redBull', name: 'Red Bull', price: '3.50', description: 'Bebida energética', image: '🔋' },
+          { id: 'mixer', name: 'Mixer', price: '0.50', description: 'Misturador', image: '🥤' },
         ]
       },
       {
         id: 'sumos',
         name: 'Sumos',
         items: [
-          { id: 'sumoNatural', name: 'Sumo Natural', price: '3.50', description: 'Laranja', image: '🍊' },
+          { id: 'sumoNatural33cl', name: 'Sumo Natural 0.33cl', price: '3.00', description: 'Laranja', image: '🍊' },
           { id: 'sumoGarrafao', name: 'Sumo de Garrafa', price: '2.50', description: 'Vários sabores', image: '🧃' }
         ]
       }
@@ -435,12 +504,15 @@ export const MENU_CATEGORIES = [
         id: 'vinhos',
         name: 'Vinhos',
         items: [
-          { id: 'vinhoTintoCopo', name: 'Vinho Tinto (Copo)', price: '2.50', description: 'Vinho da casa', image: '🍷' },
-          { id: 'vinhoBrancoCopo', name: 'Vinho Branco (Copo)', price: '2.50', description: 'Vinho da casa', image: '🍷' },
-          { id: 'vinhoVerdeCopo', name: 'Vinho Verde (Copo)', price: '2.50', description: 'Vinho da casa', image: '🍷' },
-          { id: 'vinhoTintoGarrafa', name: 'Vinho Tinto (Garrafa)', price: '12.00', description: 'Vinho da casa', image: '🍷' },
-          { id: 'vinhoBrancoGarrafa', name: 'Vinho Branco (Garrafa)', price: '12.00', description: 'Vinho da casa', image: '🍷' },
-          { id: 'vinhoVerdeGarrafa', name: 'Vinho Verde (Garrafa)', price: '12.00', description: 'Vinho da casa', image: '🍷' }
+          { id: 'vinhoTintoCopo', name: 'Vinho Tinto (Copo 1.75cl)', price: '2.00', description: 'Vinho da casa', image: '🍷' },
+          { id: 'vinhoBrancoCopo', name: 'Vinho Branco (Copo 1.75cl)', price: '2.00', description: 'Vinho da casa', image: '🍷' },
+          { id: 'vinhoTintoPiano', name: 'Piano Tinto', price: '13.00', description: 'Garrafa', image: '🍷' },
+          { id: 'vinhoTintoMonsaraz', name: 'Monsaraz Tinto', price: '9.50', description: 'Garrafa', image: '🍷' },
+          { id: 'vinhoTintoMonteVelho', name: 'Monte Velho Tinto', price: '11.00', description: 'Garrafa', image: '🍷' },
+          { id: 'vinhoTintoMontesErmos', name: 'Montes Ermos Tinto', price: '10.00', description: 'Garrafa', image: '🍷' },
+          { id: 'vinhoBrancoPiano', name: 'Piano Branco', price: '13.00', description: 'Garrafa', image: '🍷' },
+          { id: 'vinhoBrancoMonteVelho', name: 'Monte Velho Branco', price: '11.00', description: 'Garrafa', image: '🍷' },
+          { id: 'vinhoBrancoRealLavrador', name: 'Real Lavrador Branco', price: '7.00', description: 'Garrafa', image: '🍷' }
         ]
       }
     ]
@@ -453,12 +525,38 @@ export const MENU_CATEGORIES = [
         id: 'cocktailsClassicos',
         name: 'Cocktails Clássicos',
         items: [
-          { id: 'mojito', name: 'Mojito', price: '8.00', description: 'Rum, hortelã, lima, açúcar', image: '🍹' },
-          { id: 'caipirinha', name: 'Caipirinha', price: '7.00', description: 'Cachaça, lima, açúcar', image: '🍹' },
-          { id: 'pinaColada', name: 'Piña Colada', price: '8.00', description: 'Rum, coco, ananás', image: '🍹' },
-          { id: 'sexOnTheBeach', name: 'Sex on the Beach', price: '8.00', description: 'Vodka, pêssego, arando', image: '🍹' },
-          { id: 'cosmopolitan', name: 'Cosmopolitan', price: '8.50', description: 'Vodka, triple sec, arando', image: '🍸' },
-          { id: 'margarita', name: 'Margarita', price: '8.00', description: 'Tequila, triple sec, lima', image: '🍹' }
+          { id: 'longIslandIcedTea', name: 'Long Island Iced Tea', price: '9.00', description: 'Vodka, rum, gin, tequila, triple sec, limão', image: '🍹' },
+          { id: 'jogralIcedTea', name: 'Jogral Iced Tea', price: '9.00', description: 'Cocktail especial da casa', image: '🍹' },
+          { id: 'negroni', name: 'Negroni', price: '7.00', description: 'Gin, Campari, vermute', image: '🍸' },
+          { id: 'batidaRosa', name: 'Batida Rosa', price: '6.00', description: 'Vodka, frutos vermelhos', image: '🍹' },
+          { id: 'whiskySour', name: 'Whisky Sour', price: '7.00', description: 'Whisky, limão, açúcar', image: '🥃' },
+          { id: 'mojito', name: 'Mojito', price: '6.00', description: 'Rum, hortelã, lima, açúcar', image: '🍹' },
+          { id: 'mojitoFrutosVermelhos', name: 'Mojito Frutos Vermelhos', price: '7.00', description: 'Mojito com frutos vermelhos', image: '🍹' },
+          { id: 'aperolSpritz', name: 'Aperol Spritz', price: '7.00', description: 'Aperol, prosecco, soda', image: '🍊' },
+          { id: 'aperolFantastic', name: 'Aperol Fantastic', price: '7.00', description: 'Aperol especial', image: '🍊' },
+          { id: 'jogralRainbow', name: 'Jogral Rainbow', price: '6.00', description: 'Cocktail colorido da casa', image: '🌈' },
+          { id: 'nuclearBeast', name: 'Nuclear Beast', price: '12.00', description: 'Cocktail forte especial', image: '☢️' },
+          { id: 'jagerCream', name: 'Jager Cream', price: '6.00', description: 'Jagermeister com creme', image: '🦌' },
+          { id: 'jackKnife', name: 'Jack Knife', price: '7.00', description: 'Jack Daniel\'s especial', image: '🔪' },
+          { id: 'moscowMule', name: 'Moscow Mule', price: '7.00', description: 'Vodka, ginger beer, limão', image: '🍹' },
+          { id: 'sexOnTheBar', name: 'Sex On The Bar', price: '7.00', description: 'Vodka, licores, frutos', image: '🍹' },
+          { id: 'operator', name: 'Operator', price: '5.00', description: 'Cocktail especial', image: '🍸' },
+          { id: 'jdOperator', name: 'JD Operator', price: '7.00', description: 'Jack Daniel\'s Operator', image: '🍸' },
+          { id: 'cubaLibre', name: 'Cuba Libre', price: '6.00', description: 'Rum, coca-cola, limão', image: '🍹' },
+          { id: 'margarita', name: 'Margarita', price: '7.00', description: 'Tequila, triple sec, lima', image: '🍹' },
+          { id: 'expressoMartini', name: 'Expresso Martini', price: '7.00', description: 'Vodka, café, licor de café', image: '☕' },
+          { id: 'caipirinha', name: 'Caipirinha', price: '5.00', description: 'Cachaça, lima, açúcar', image: '🍹' },
+          { id: 'caipiroska', name: 'Caipiroska', price: '5.00', description: 'Vodka, lima, açúcar', image: '🍹' },
+          { id: 'caipiblack', name: 'Caipiblack', price: '5.00', description: 'Whisky, lima, açúcar', image: '🍹' }
+        ]
+      },
+      {
+        id: 'sangrias',
+        name: 'Sangrias',
+        items: [
+          { id: 'sangriaTropicalTinta', name: 'Sangria Tropical 1L - Tinta', price: '11.00', description: 'Sangria de vinho tinto', image: '🍷' },
+          { id: 'sangriaTropicalBranca', name: 'Sangria Tropical 1L - Branca', price: '11.00', description: 'Sangria de vinho branco', image: '🍷' },
+          { id: 'sangriaEspumante', name: 'Sangria Espumante 1L - Frutos Vermelhos', price: '13.00', description: 'Sangria de espumante', image: '🍾' }
         ]
       },
       {
